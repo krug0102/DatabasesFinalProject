@@ -1,0 +1,30 @@
+<div fxLayout="row">
+  <div fxFlex fxFlex.gt-sm="80" fxFlexOffset.gt-sm="10">
+
+    <mat-card class="search-card">
+      <mat-card-title class="game-list-title">Games</mat-card-title>
+      <mat-card-content fxLayout="column" >
+
+        <div fxLayout="row wrap" fxLayoutGap="10px">
+
+          <mat-form-field class="input-field">
+            <mat-label>Title</mat-label>
+            <input matInput data-test="gameTitleInput" placeholder="Filter by game title"
+                   [(ngModel)]="gameTitle" (input)="updateFilter()">
+            <mat-hint>Search for game by title</mat-hint>
+          </mat-form-field>
+
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<mat-nav-list class="product-nav-list">
+  <h3 mat-subheader>Games</h3>
+  <a mat-list-item *ngFor="let game of this.filteredGames" [routerLink]="['/games', game._id]" class="game-list-item">
+    <h3 matLine class="game-list-title">{{game.title}}</h3>
+    <h4 matLine class="game-list-genre">{{game.genre}}</h4>
+  </a>
+</mat-nav-list>

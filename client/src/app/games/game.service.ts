@@ -14,26 +14,26 @@ export class GameService {
   constructor(private httpClient: HttpClient ) {
   }
 
-  filteredGames(games: Game[], filters: { title: string, genre: string }): Game[] {
+  filteredGames(games: Game[], filters: { gameGame: string; gameGenre: string; gameYear?: number; gameoriginalPlatform?: string }): Game[] {
 
     let filteredGames = games;
 
-    // Filter by title
-    if (filters.title) {
-      filters.title = filters.title.toLowerCase();
+    // Filter by Game
+    if (filters.gameGame) {
+      filters.gameGame = filters.gameGame.toLowerCase();
 
-      filteredGames = filteredGames.filter(game => game.title.toLowerCase().indexOf(filters.title) !== -1);
+      filteredGames = filteredGames.filter(game => game.gameGame.toLowerCase().indexOf(filters.gameGame) !== -1);
     }
 
     return filteredGames;
   }
 
-  getGames(filters?: { title?: string, genre?: string }): Observable<Game[]> {
+  getGames(filters?: { gameGame?: string; gameGenre?: string; gameYear?: number; gameoriginalPlatform?: string }): Observable<Game[]> {
     let httpParams: HttpParams = new HttpParams();
 
     if (filters) {
-      if (filters.title) {
-        httpParams = httpParams.set('title', filters.title);
+      if (filters.gameGame) {
+        httpParams = httpParams.set('Game', filters.gameGame);
       }
     }
 

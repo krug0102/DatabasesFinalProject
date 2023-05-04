@@ -13,15 +13,21 @@ export class GameListComponent implements OnInit {
   public serverFilteredGames: Game[];
   public filteredGames: Game[];
 
-  public gameTitle: string;
+  public gameYear: number;
+  public gameGame: string;
   public gameGenre: string;
-  public gamePlatform: string;
   public gamePublisher: string;
-  public gameDeveloper: string;
-  public gameReleaseYear: number;
-  public gameContentRating: string;
-  public gameUnitsSold: number;
-  public gameTotalRevenue: number;
+  public gameoriginalPlatform: string;
+
+  // public gameTitle: string;
+  // public gameGenre: string;
+  // public gamePlatform: string;
+  // public gamePublisher: string;
+  // public gameDeveloper: string;
+  // public gameReleaseYear: number;
+  // public gameContentRating: string;
+  // public gameUnitsSold: number;
+  // public gameTotalRevenue: number;
 
   getGameSub: Subscription;
 
@@ -30,8 +36,10 @@ export class GameListComponent implements OnInit {
   getGamesFromServer(): void {
     this.unsub();
     this.getGameSub = this.gameService.getGames({
-      title: this.gameTitle,
-      genre: this.gameGenre
+      gameGame: this.gameGame,
+      gameGenre: this.gameGenre,
+      gameYear: this.gameYear,
+      gameoriginalPlatform: this.gameoriginalPlatform
       // platform: this.gamePlatform,
       // publisher: this.gamePublisher,
       // developer: this.gameDeveloper,
@@ -49,7 +57,8 @@ export class GameListComponent implements OnInit {
 
   public updateFilter(): void {
     this.filteredGames = this.gameService.filteredGames(
-      this.serverFilteredGames, {title: this.gameTitle, genre: this.gameGenre});
+        // eslint-disable-next-line max-len
+      this.serverFilteredGames, {gameGame: this.gameGame, gameGenre: this.gameGenre, gameYear: this.gameYear, gameoriginalPlatform: this.gameoriginalPlatform});
   }
 
   ngOnInit(): void {

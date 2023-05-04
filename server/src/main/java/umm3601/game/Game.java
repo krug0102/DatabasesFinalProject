@@ -11,6 +11,12 @@ public class Game {
   @SuppressWarnings({"MemberName"})
   public String _id;
 
+  public int Year;
+  public String Game;
+  public String Genre;
+  public String Publisher;
+  public String originalPlatforms;
+
   public String title;
   public String genre;
   public String platform;

@@ -10,7 +10,7 @@
           <mat-form-field class="input-field">
             <mat-label>Title</mat-label>
             <input matInput data-test="gameTitleInput" placeholder="Filter by game title"
-                   [(ngModel)]="gameTitle" (input)="updateFilter()">
+                   [(ngModel)]="gameGame" (input)="updateFilter()">
             <mat-hint>Search for game by title</mat-hint>
           </mat-form-field>
 
@@ -24,7 +24,9 @@
 <mat-nav-list class="product-nav-list">
   <h3 mat-subheader>Games</h3>
   <a mat-list-item *ngFor="let game of this.filteredGames" [routerLink]="['/games', game._id]" class="game-list-item">
-    <h3 matLine class="game-list-title">{{game.title}}</h3>
-    <h4 matLine class="game-list-genre">{{game.genre}}</h4>
+    <h3 matLine class="game-list-title">{{game.gameGame}}</h3>
+    <h4 matLine class="game-list-genre">{{game.gameGenre}}</h4>
+    <h5 matLine class="game-list-year">{{game.gameYear}}</h5>
+    <h6 matLine class="game-list-platform">{{game.gameoriginalPlatform}}</h6>
   </a>
 </mat-nav-list>

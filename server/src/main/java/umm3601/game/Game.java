@@ -15,17 +15,7 @@ public class Game {
   public String Game;
   public String Genre;
   public String Publisher;
-  public String originalPlatforms;
-
-  public String title;
-  public String genre;
-  public String platform;
-  public String publisher;
-  public String developer;
-  public int releaseYear;
-  public String contentRating;
-  public int unitsSold;
-  public double totalRevenue;
+  public String gameoriginalPlatforms;
 
 
 }

@@ -11,15 +11,16 @@ public class Game {
   @SuppressWarnings({"MemberName"})
   public String _id;
 
+  public int releaseYear;
   public String title;
   public String genre;
-  public String platform;
   public String publisher;
-  public String developer;
-  public int releaseYear;
-  public String contentRating;
-  public int unitsSold;
-  public double totalRevenue;
+  public String platform;
+
+  //public String developer;
+  //public String contentRating;
+  //public int unitsSold;
+  //public double totalRevenue;
 
 
 }

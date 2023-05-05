@@ -14,6 +14,24 @@
             <mat-hint>Search for game by title</mat-hint>
           </mat-form-field>
 
+          <mat-form-field>
+            <mat-label>Select Genre</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let game of this.filteredGames" [value]="game.gameGenre">
+                {{game.gameGenre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Select Year</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let game of this.filteredGames" [value]="game.gameYear">
+                {{game.gameYear}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
         </div>
 
       </mat-card-content>

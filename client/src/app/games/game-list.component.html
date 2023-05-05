@@ -22,45 +22,19 @@
           </mat-form-field>
 
           <mat-form-field class="input-field">
-            <mat-label>Year</mat-label>
-            <input matInput data-test="gameTitleInput" placeholder="Filter by game year"
-                   [(ngModel)]="gameYear" (input)="updateFilter()">
-            <mat-hint>Search for game by year</mat-hint>
-          </mat-form-field>
-
-          <mat-form-field class="input-field">
             <mat-label>Platform</mat-label>
             <input matInput data-test="gameTitleInput" placeholder="Filter by game platform"
                    [(ngModel)]="gameoriginalPlatforms" (input)="updateFilter()">
             <mat-hint>Search for game by platform</mat-hint>
           </mat-form-field>
 
-          <!-- <mat-form-field>
-            <mat-label>Select Genre</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let game of this.filteredGames" [value]="game.gameGenre">
-                {{game.gameGenre}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+          <!--mat-form-field class="input-field">
+            <mat-label>Year</mat-label>
+            <input matInput data-test="gameTitleInput" placeholder="Filter by game year"
+                   [(ngModel)]="gameYear" (input)="updateFilter()">
+            <mat-hint>Search for game by year</mat-hint>
+          </mat-form-field -->
 
-          <mat-form-field>
-            <mat-label>Select Year</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let game of this.filteredGames" [value]="game.gameYear">
-                {{game.gameYear}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-label>Select Platform</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let game of this.filteredGames" [value]="game.gameoriginalPlatforms">
-                {{game.gameoriginalPlatforms}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field> -->
 
         </div>
 

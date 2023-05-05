@@ -24,8 +24,11 @@ import io.javalin.http.HttpCode;
 
 public class GameController {
 
-  private static final String TITLE_KEY = "title";
-  //private static final String BRAND_KEY = "brand"; --One Day
+  private static final String GAME_KEY = "gameGame";
+  private static final String YEAR_KEY = "gameYear";
+  private static final String GENRE_KEY = "gameGenre";
+  private static final String PUBLISHER_KEY = "gamePublisher";
+  private static final String PLATFORM_KEY = "gameoriginalPlatform";
 
   private final JacksonMongoCollection<Game> gameCollection;
 
@@ -73,8 +76,14 @@ public class GameController {
   private Bson constructFilter(Context ctx) {
     List<Bson> filters = new ArrayList<>(); // start with a blank document
 
-    if (ctx.queryParamMap().containsKey(TITLE_KEY)) {
-        filters.add(eq(TITLE_KEY, ctx.queryParam(TITLE_KEY)));
+    if (ctx.queryParamMap().containsKey(GAME_KEY)) {
+        filters.add(eq(GAME_KEY, ctx.queryParam(GAME_KEY)));
+    }
+    if (ctx.queryParamMap().containsKey(YEAR_KEY)) {
+      filters.add(eq(YEAR_KEY, ctx.queryParam(YEAR_KEY)));
+    }
+    if (ctx.queryParamMap().containsKey(GENRE_KEY)) {
+      filters.add(eq(GENRE_KEY, ctx.queryParam(GENRE_KEY)));
     }
 
     // Combine the list of filters into a single filtering document.

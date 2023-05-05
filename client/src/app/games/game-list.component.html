@@ -17,9 +17,9 @@
           <mat-form-field>
             <mat-label>Select Genre</mat-label>
             <mat-select>
-              <mat-option *ngFor="let game of this.filteredGames" [value]="game.gameGenre">
-                {{game.gameGenre}}
-              </mat-option>
+              <input matInput data-test="gameGenreInput" placeholder="Filter by game genre"
+                   [(ngModel)]="gameGenre" (input)="updateFilter()">
+            <mat-hint>Filter by game genre</mat-hint>
             </mat-select>
           </mat-form-field>
 

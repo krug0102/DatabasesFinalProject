@@ -24,6 +24,10 @@ export class GameService {
 
       filteredGames = filteredGames.filter(game => game.gameGame.toLowerCase().indexOf(filters.gameGame) !== -1);
     }
+    if (filters.gameGenre) {
+      filters.gameGenre = filters.gameGenre.toLowerCase();
+      filteredGames = filteredGames.filter(game => game.gameGenre.toLowerCase().indexOf(filters.gameGenre) !== -1);
+    }
 
     return filteredGames;
   }

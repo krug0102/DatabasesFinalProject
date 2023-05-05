@@ -1,9 +1,10 @@
 <mat-card class="game-card" *ngIf="this.game">
     <mat-card-header>
       <mat-card-title class="game-card-name">{{this.game.gameGame}}</mat-card-title>
+      <mat-card-subtitle class="game-card-year"> Release Year: {{this.game.gameYear}}</mat-card-subtitle>
       <mat-card-subtitle class="game-card-genre"> Genre: {{this.game.gameGenre}}</mat-card-subtitle>
       <mat-card-subtitle class="game-card-publisher"> Publisher: {{this.game.gamePublisher}}</mat-card-subtitle>
-      <mat-card-subtitle class="game-card-year"> Release Year: {{this.game.gameYear}}</mat-card-subtitle>
+      <mat-card-subtitle class="game-card-originalPlatforms"> Original Platform(s) {{this.game.gameoriginalPlatforms}}</mat-card-subtitle>
     </mat-card-header>
   
   </mat-card>

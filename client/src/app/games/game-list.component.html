@@ -46,7 +46,7 @@
 <mat-nav-list class="product-nav-list">
   <h3 mat-subheader>Games</h3>
   <a mat-list-item *ngFor="let game of this.filteredGames" [routerLink]="['/games', game._id]" class="game-list-item">
-    <h3 matLine class="game-list-title">Title: {{game.gameGame}}</h3>
+    <h3 matLine class="game-list-title">{{game.gameGame}}</h3>
     <h4 matLine class="game-list-genre">Genre: {{game.gameGenre}}</h4>
     <h5 matLine class="game-list-year">Release Year: {{game.gameYear}}</h5>
     <h6 matLine class="game-list-platform">Original Platform(s): {{game.gameoriginalPlatforms}}</h6>

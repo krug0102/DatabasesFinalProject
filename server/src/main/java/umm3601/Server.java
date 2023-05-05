@@ -61,7 +61,7 @@ public class Server {
 
     server.start(SERVER_PORT);
 
-    server.get("/api/games", gameController::getGames);
+    server.get("/api/games", gameController::getAllGames);
 
     server.get("/api/games/{id}", gameController::getGame);
 

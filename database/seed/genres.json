@@ -1,0 +1,71 @@
+[
+    { "_id": {"$oid": "645571ddfc13ae322c89edd6"},
+        "genre": "Strategy"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89edd7"},
+        "genre": "Action"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89edd8"},
+        "genre": "Role-playing"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89edd9"},
+        "genre": "Action Role-playing"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89edda"},
+        "genre": "MOBA"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89eddb"},
+        "genre": "Turn-based strategy"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89eddc"},
+        "genre": "Tower defense"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89eddd"},
+        "genre": "Adventure"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89edde"},
+        "genre": "Platform"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89eddf"},
+        "genre": "Action-adventure"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89ede0"},
+        "genre": "Rhythm"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89ede1"},
+        "genre": "Real-time strategy"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89ede2"},
+        "genre": "Sandbox"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89ede3"},
+        "genre": "Puzzle-platformer"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89ede4"},
+        "genre": "Stealth"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89ede5"},
+        "genre": "First-person shooter"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89ede6"},
+        "genre": "Tactical role-playing"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89ede7"},
+        "genre": "Puzzle"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89ede8"},
+        "genre": "Digital collectible card"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89ede9"},
+        "genre": "Sports"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89edea"},
+        "genre": "Simulation"
+    },
+    { "_id": {"$oid": "645571ddfc13ae322c89edeb"},
+        "genre": "Battle royal"
+    },
+    {"_id": {"$oid": "645571ddfc13ae322c89edec"},
+        "genre": "Third-person shooter"
+    }
+]

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Game } from './game';
+import { Game, GameGenre } from './game';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class GameService {
   constructor(private httpClient: HttpClient ) {
   }
 
-  filteredGames(games: Game[], filters: { gameGame: string; gameGenre: string; gameYear: number; gameoriginalPlatforms: string }): Game[] {
+  filterGames(games: Game[], filters: { gameGame?: string; gameYear?: number; gameoriginalPlatforms?: string; gameGenre?: GameGenre }): Game[] {
 
     let filteredGames = games;
 
@@ -24,10 +24,6 @@ export class GameService {
 
       filteredGames = filteredGames.filter(game => game.gameGame.toLowerCase().indexOf(filters.gameGame) !== -1);
     }
-    if (filters.gameGenre) {
-      filters.gameGenre = filters.gameGenre.toLowerCase();
-      filteredGames = filteredGames.filter(game => game.gameGenre.toLowerCase().indexOf(filters.gameGenre) !== -1);
-    }
     if (filters.gameYear) {
       filteredGames = filteredGames.filter(game => game.gameYear);
     }
@@ -35,19 +31,19 @@ export class GameService {
       filters.gameoriginalPlatforms = filters.gameoriginalPlatforms.toLowerCase();
       filteredGames = filteredGames.filter(game => game.gameoriginalPlatforms.toLowerCase().indexOf(filters.gameoriginalPlatforms) !== -1);
     }
-
+    if (filters.gameGenre) {
+      filteredGames = filteredGames.filter(game => game.gameGenre.indexOf(filters.gameGame) !== -1);
+    }
     return filteredGames;
   }
 
-  getGames(filters?: { gameGame?: string; gameGenre?: string; gameYear?: number; gameoriginalPlatforms?: string }): Observable<Game[]> {
+  getGames(filters?: { gameGenre?: GameGenre; store?: string }): Observable<Game[]> {
     let httpParams: HttpParams = new HttpParams();
-
     if (filters) {
-      if (filters.gameGame) {
-        httpParams = httpParams.set('Game', filters.gameGame);
+      if (filters.gameGenre) {
+        httpParams = httpParams.set('gameGenre', filters.gameGenre);
       }
     }
-
     return this.httpClient.get<Game[]>(this.gameURL, {
       params: httpParams,
     });

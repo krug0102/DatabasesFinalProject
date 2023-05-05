@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Game } from './game';
+import { Game, GameGenre } from './game';
 import { GameService } from './game.service';
 import { Subscription } from 'rxjs';
 
@@ -15,31 +15,67 @@ export class GameListComponent implements OnInit {
 
   public gameYear: number;
   public gameGame: string;
-  public gameGenre: string;
+  public gameGenre: GameGenre;
   public gamePublisher: string;
   public gameoriginalPlatforms: string;
 
-  // public gameTitle: string;
-  // public gameGenre: string;
-  // public gamePlatform: string;
-  // public gamePublisher: string;
-  // public gameDeveloper: string;
-  // public gameReleaseYear: number;
-  // public gameContentRating: string;
-  // public gameUnitsSold: number;
-  // public gameTotalRevenue: number;
+  public activeFilters: boolean;
+
+  public genresList: GameGenre[] = [
+    'Strategy',
+    'Action', 
+    'Role-playing',
+    'Action Role-playing',
+    'Action-adventure',
+    'Turn-based strategy',
+    'Adventure',
+    'Platform',
+    'Rhythm',
+    'Real-time strategy',
+    'Sandbox',
+    'Puzzle-platformer',
+    'Stealth',
+    'First-person shooter',
+    'Tactical role-playing',
+    'Puzzle',
+    'Digital collectible card',
+    'Sports',
+    'Simulation',
+    'Battle royal',
+    'Third-person shooter',
+    'MOBA',
+    'Tower defense',
+    'Top-down shooter',
+    'Shoot \'em up',
+    'Vehicle simulation',
+    'Maze',
+    'Business simulation',
+    'Space flight simulator',
+    'Block breaker',
+    'Racing',
+    'Run and gun',
+    'Beat \'em up',
+    'God game',
+    'City-building',
+    'Fighting',
+    'Survival horror',
+    'Kart racing',
+    'Real-time tactics',
+    'Artillery',
+    'MMORPG',
+    'Life simulation'
+  ];
 
   getGameSub: Subscription;
+
+  public genreNameMap = new Map<GameGenre, Game[]>();
 
   constructor(private gameService: GameService) { }
 
   getGamesFromServer(): void {
     this.unsub();
     this.getGameSub = this.gameService.getGames({
-      gameGame: this.gameGame,
       gameGenre: this.gameGenre,
-      gameYear: this.gameYear,
-      gameoriginalPlatforms: this.gameoriginalPlatforms
       // platform: this.gamePlatform,
       // publisher: this.gamePublisher,
       // developer: this.gameDeveloper,
@@ -49,16 +85,31 @@ export class GameListComponent implements OnInit {
       // totalRevenue: this.gameTotalRevenue
     }).subscribe(returnedGames => {
       this.serverFilteredGames = returnedGames;
+      this.initializeGenreMap();
       this.updateFilter();
     }, err => {
       console.log(err);
     });
   }
 
+  initializeGenreMap() {
+    for (let givenGenre of this.genresList) {
+      this.genreNameMap.set(givenGenre,
+        this.gameService.filterGames(this.serverFilteredGames, { gameGenre: givenGenre }));
+    }
+    console.log(this.genreNameMap)
+  }
+
   public updateFilter(): void {
-    this.filteredGames = this.gameService.filteredGames(
+    this.filteredGames = this.gameService.filterGames(
         // eslint-disable-next-line max-len
-      this.serverFilteredGames, {gameGame: this.gameGame, gameGenre: this.gameGenre, gameYear: this.gameYear, gameoriginalPlatforms: this.gameoriginalPlatforms});
+      this.serverFilteredGames, {gameGame: this.gameGame, gameYear: this.gameYear, gameoriginalPlatforms: this.gameoriginalPlatforms});
+      if (this.gameGame || this.gameGenre || this.gameoriginalPlatforms || this.gameYear) {
+        this.activeFilters = true;
+      }
+      else {
+        this.activeFilters = false;
+      }
   }
 
   ngOnInit(): void {

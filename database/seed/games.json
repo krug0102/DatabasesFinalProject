@@ -1368,7 +1368,7 @@
       "gameGenre": "First-person shooter",
       "gamePublisher": "Valve",
       "gameoriginalPlatforms": "PC, Xbox 360"  },
-    { "_id": {"$oid":  "64553a95fc13ae29a389e9e1"},      "gameYear": 2009,
+    { "_id": {"$oid": "64553a95fc13ae29a389e9e1"},      "gameYear": 2009,
       "gameGame": "Plants vs. Zombies",
       "gameGenre": "Tower defense",
       "gamePublisher": "PopCap Games",

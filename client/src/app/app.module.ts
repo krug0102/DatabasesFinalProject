@@ -27,7 +27,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
+import { GameCardComponent } from './games/game-card.component';
 import { GameListComponent } from './games/game-list.component';
+import { GameProfileComponent } from './games/game-profile.component';
 import { GameService } from './games/game.service';
 
 const MATERIAL_MODULES: any[] = [
@@ -54,6 +56,8 @@ const MATERIAL_MODULES: any[] = [
     AppComponent,
     HomeComponent,
     GameListComponent,
+    GameProfileComponent,
+    GameCardComponent,
   ],
   imports: [
     BrowserModule,

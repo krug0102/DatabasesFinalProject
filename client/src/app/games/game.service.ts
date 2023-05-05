@@ -53,6 +53,10 @@ export class GameService {
     });
   }
 
+  getGameById(id: string): Observable<Game> {
+    return this.httpClient.get<Game>(this.gameURL + '/' + id);
+  }
+
 }
 
 

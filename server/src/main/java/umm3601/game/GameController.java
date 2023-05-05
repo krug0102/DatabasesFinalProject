@@ -28,7 +28,7 @@ public class GameController {
   private static final String YEAR_KEY = "gameYear";
   private static final String GENRE_KEY = "gameGenre";
   private static final String PUBLISHER_KEY = "gamePublisher";
-  private static final String PLATFORM_KEY = "gameoriginalPlatform";
+  private static final String PLATFORM_KEY = "gameoriginalPlatforms";
 
   private final JacksonMongoCollection<Game> gameCollection;
 

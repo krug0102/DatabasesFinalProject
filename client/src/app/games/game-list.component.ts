@@ -17,7 +17,7 @@ export class GameListComponent implements OnInit {
   public gameGame: string;
   public gameGenre: string;
   public gamePublisher: string;
-  public gameoriginalPlatform: string;
+  public gameoriginalPlatforms: string;
 
   // public gameTitle: string;
   // public gameGenre: string;
@@ -39,7 +39,7 @@ export class GameListComponent implements OnInit {
       gameGame: this.gameGame,
       gameGenre: this.gameGenre,
       gameYear: this.gameYear,
-      gameoriginalPlatform: this.gameoriginalPlatform
+      gameoriginalPlatforms: this.gameoriginalPlatforms
       // platform: this.gamePlatform,
       // publisher: this.gamePublisher,
       // developer: this.gameDeveloper,
@@ -58,7 +58,7 @@ export class GameListComponent implements OnInit {
   public updateFilter(): void {
     this.filteredGames = this.gameService.filteredGames(
         // eslint-disable-next-line max-len
-      this.serverFilteredGames, {gameGame: this.gameGame, gameGenre: this.gameGenre, gameYear: this.gameYear, gameoriginalPlatform: this.gameoriginalPlatform});
+      this.serverFilteredGames, {gameGame: this.gameGame, gameGenre: this.gameGenre, gameYear: this.gameYear, gameoriginalPlatforms: this.gameoriginalPlatforms});
   }
 
   ngOnInit(): void {

@@ -6,5 +6,5 @@ _id: string;
  gameGame: string;
  gameGenre: string;
  gamePublisher: string;
- gameoriginalPlatform: string;
+ gameoriginalPlatforms: string;
 }
